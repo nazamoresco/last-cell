@@ -1,7 +1,7 @@
 # Last cell
 ### Code interative cellular automata system
 
-# Defining behaviour
+### Defining behaviour
 You can define the behaviour of a kind of cell with a javascript function.
 The next object is expected to be returned from the function:
 ```
