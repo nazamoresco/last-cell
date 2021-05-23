@@ -33,7 +33,7 @@ canvas {
 
 .particle {
   padding: 1rem;
-  background-color:#575554 ;
+  background-color: #3c3b3a ;
   margin-bottom: 1rem;
 }
 
@@ -62,7 +62,7 @@ canvas {
 }
 
 .particle * {
-  background-color: #575554;
+  background-color: transparent;
   color: #eae3d8;
   border: none;
   font-size: 15px;
@@ -73,7 +73,7 @@ canvas {
   overflow: hidden;
   min-height: 100px;
   width: 800px;
-  background-color:#575554 ;
+  background-color:transparent ;
   color: #eae3d8;
   border: none;
 }
@@ -132,7 +132,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .new-def-button {
-  background-color:#575554 ;
+  background-color:#3c3b3a;
   color: #eae3d8;
   border: none;
   padding: 0.5rem;
