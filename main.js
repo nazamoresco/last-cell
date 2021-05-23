@@ -40,8 +40,8 @@ cells.forEach((cell) => {
 });
 
 const getSafelyFromSurrounding = (x, y) => {
-  x = x == 0 ? matrixSize - 1 : x == matrixSize ? 0 : x;
-  y = y == 0 ? matrixSize - 1 : y == matrixSize ? 0 : y;
+  x = x == 0 ? matrixSize - 1 : x == matrixSize || x == -1 ? 0 : x;
+  y = y == 0 ? matrixSize - 1 : y == matrixSize || y == -1 ? 0 : y;
   return surroundings[x][y];
 };
 
