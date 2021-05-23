@@ -40,11 +40,9 @@ cells.forEach((cell) => {
 });
 
 const getSafelyFromSurrounding = (x, y) => {
-  if (x > 0 && x < matrixSize && y > 0 && x < matrixSize) {
-    return surroundings[x][y];
-  } else {
-    null;
-  }
+  x = x == 0 ? matrixSize - 1 : x == matrixSize ? 0 : x;
+  y = y == 0 ? matrixSize - 1 : y == matrixSize ? 0 : y;
+  return surroundings[x][y];
 };
 
 // Add listeners
@@ -201,9 +199,6 @@ setInterval(function () {
     );
     surroundingCell.push(getSafelyFromSurrounding(positionX, positionY + 1));
     surroundingCell.push(getSafelyFromSurrounding(positionX, positionY - 1));
-
-    // Remove nulls
-    surroundingCell = surroundingCell.filter((e) => e);
 
     try {
       let toDo = cell.behaviour(cell, surroundingCell);
