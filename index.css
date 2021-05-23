@@ -1,0 +1,128 @@
+/* 
+bgColor = #32302f
+textColor = #c4b08e
+*/
+
+/* reset */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Layout */
+html {
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+body {
+  background-color: #32302f;
+  color: #eae3d8;
+}
+
+canvas {
+  background-color: black;
+}
+
+.particle {
+  padding: 1rem;
+}
+
+.particle p {
+  display: block;
+}
+
+.particle * {
+  display: block;
+}
+
+#props input {
+  display: inline-block;
+}
+
+#props {
+  margin-bottom: 1rem;
+  justify-content: left;
+  display: flex;
+  align-items: center;
+}
+
+#feedback {
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+
+.particle * {
+  background-color: #32302f;
+  color: #eae3d8;
+  border: none;
+  font-size: 15px;
+}
+
+.particle textarea {
+  resize: none;
+  overflow: hidden;
+  min-height: 100px;
+  width: 800px;
+  background-color: #32302f;
+  color: #eae3d8;
+  border: none;
+}
+
+/* remove arrows */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#props div {
+  display: flex;
+  align-items: flex-end;
+}
+
+#props div p {
+  margin-right: 10px;
+}
+
+input[type=color] {
+  height: 19px;
+  width: 19px;
+  border: none;
+  outline: 0;
+  -webkit-appearance: none;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#props input:focus, #behaviour:focus {
+  outline: none;
+}
+
+.docu {
+  margin-top: 1rem;
+  padding: 0 0.5rem;
+  color: #eae3d8;
+}
+
+.docu h1 {
+  font-style: italic;
+}
