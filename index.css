@@ -17,11 +17,12 @@ html {
 
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   padding: 1rem;
 }
 
 body {
+  margin-top: 1rem;
   background-color: #32302f;
   color: #eae3d8;
 }
@@ -32,6 +33,8 @@ canvas {
 
 .particle {
   padding: 1rem;
+  background-color:#575554 ;
+  margin-bottom: 1rem;
 }
 
 .particle p {
@@ -59,7 +62,7 @@ canvas {
 }
 
 .particle * {
-  background-color: #32302f;
+  background-color: #575554;
   color: #eae3d8;
   border: none;
   font-size: 15px;
@@ -70,7 +73,7 @@ canvas {
   overflow: hidden;
   min-height: 100px;
   width: 800px;
-  background-color: #32302f;
+  background-color:#575554 ;
   color: #eae3d8;
   border: none;
 }
@@ -118,6 +121,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .docu {
+  width: 600px;
   margin-top: 1rem;
   padding: 0 0.5rem;
   color: #eae3d8;
@@ -125,4 +129,12 @@ input[type="color"]::-webkit-color-swatch {
 
 .docu h1 {
   font-style: italic;
+}
+
+.new-def-button {
+  background-color:#575554 ;
+  color: #eae3d8;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer
 }

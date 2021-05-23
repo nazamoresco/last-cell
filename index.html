@@ -11,10 +11,10 @@
   <body>
     <div class="container">
       <div class="canvas-container">
-        <canvas id="canvas" width="500" height="500"></canvas>
+        <canvas id="canvas" width="600" height="500"></canvas>
         <div class="docu">
           <h1>Last cell</h1>
-          <h3>Code interative cell automata system</h3>
+          <h3>Code interative cellular automata system</h3>
           <br />
           <p>You can define the behaviour of a kind of cell with a javascript function.</p>
           <p>The next object is expected to be returned from the function:</p>
@@ -58,42 +58,43 @@
           </p>
         </div>
       </div>
-      <div id="definitions">
-        <div id="0" name="definition" class="particle">
-          <div id="props">
-            <div>
-              <p>id:</p>
-              <input id="identifier" class="identifier" value="cell" />
+      <div>
+        <div id="definitions">
+          <div id="0" name="definition" class="particle">
+            <div id="props">
+              <div>
+                <p>id:</p>
+                <input id="identifier" class="identifier" value="cell" />
+              </div>
+              <div>
+                <p>quantity:</p>
+                <input id="quantity" class="quantity"  type="number" value="100" />
+              </div>
+              <div>
+                <p>color:</p>
+                <input id="color" class="color"  type="color" value="#ffffff" />
+              </div>
             </div>
-            <div>
-              <p>quantity:</p>
-              <input id="quantity" class="quantity"  type="number" value="100" />
+            <div id="function">
+              <p id="feedback" class="feedback">// everything is cool :)</p>
+              <textarea
+                oninput="auto_grow(this)"
+                id="behaviour"
+                spellcheck="false"
+                class="behaviour"
+              >
+  (cell, surroundings) => {
+    let toDo = surroundings[Math.floor(Math.random() * surroundings.length)];
+    toDo.action = ACTION_MOVE;
+    return toDo;
+  }
+          </textarea
+              >
             </div>
-            <div>
-              <p>color:</p>
-              <input id="color" class="color"  type="color" value="#ffffff" />
-            </div>
-          </div>
-          <div id="function">
-            <p id="feedback" class="feedback">// everything is cool :)</p>
-            <textarea
-              oninput="auto_grow(this)"
-              id="behaviour"
-              spellcheck="false"
-              class="behaviour"
-            >
-(cell, surroundings) => {
-  let toDo = surroundings[Math.floor(Math.random() * surroundings.length)];
-  toDo.action = ACTION_MOVE;
-  return toDo;
-}
-        </textarea
-            >
           </div>
         </div>
-        <button id="newDefinition"> Create new definition </button>
+        <button id="newDefinition" class="new-def-button"> Create new definition </button>
       </div>
-
       <script type="text/javascript" src="./main.js"></script>
     </div>
   </body>
