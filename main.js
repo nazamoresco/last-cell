@@ -89,6 +89,7 @@ const changeBehaviour = (event) => {
       "feedback"
     )[0].value = "// everything is cool :)";
     cellsDefinitions[defId].behaviour = newBehaviour;
+    cellsDefinitions[defId].failed = false;
     changeAllCells(defId, cellsDefinitions[defId].identifier, "behaviour");
   } catch (e) {
     event.target.parentElement.parentElement.getElementsByClassName(
