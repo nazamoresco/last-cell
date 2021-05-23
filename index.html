@@ -15,6 +15,7 @@
         <div class="docu">
           <h1>Last cell</h1>
           <h3>Code interative cellular automata system</h3>
+          <h5>by <a href="https://github.com/nazamoresco" target="_blank">me</a></h5>
           <br />
           <p>You can define the behaviour of a kind of cell with a javascript function.</p>
           <p>The next object is expected to be returned from the function:</p>
@@ -56,6 +57,86 @@
             &nbsp;&nbsp;* ACTION_ATTACK, the cell destroys any ocupier cell in
             the selected position
           </p>
+          <br />
+          <h4> Some examples :) </h4>
+          <br />
+          <pre>
+// GO LEFT
+(cell, surroundings) => {
+  let toDo = surroundings[0];
+  toDo.action = ACTION_MOVE;
+  return toDo;
+}
+          </pre>
+          <br />
+          <pre>
+// DO 8
+(cell, surroundings) => {
+  cell.previousIndex = cell.previousIndex || 0;
+  let toDo = surroundings[Math.floor(cell.previousIndex)];
+  cell.previousIndex = (cell.previousIndex + 0.1) % (surroundings.length - 0.5);
+  toDo.action = ACTION_MOVE;
+  return toDo;
+}
+          </pre>
+          <br />
+          <pre>
+// Around around around
+(cell, surroundings) => {
+  const safe = (p) => ((p % matrixSize) + matrixSize) % matrixSize;
+  const findY = (x, dir) =>
+    Math.floor(
+      dir *
+        Math.sqrt(Math.pow(cell.radius, 2) - Math.pow(x - cell.centerX, 2)) +
+        cell.centerY
+    );
+
+  if (!cell.moveX || !cell.moveY || cell.reset) {
+    // console.log("Begg.");
+    cell.moveX = cell.positionX + 1;
+    cell.moveY = cell.positionY;
+    cell.radius = Math.floor(Math.random() * 100) + 10;
+    cell.centerX = cell.positionX;
+    cell.centerY = cell.positionY - cell.radius;
+    cell.reset = false;
+  } else if (
+    cell.moveX > cell.centerX &&
+    cell.moveX < cell.centerX + cell.radius &&
+    cell.moveY > cell.centerY
+  ) {
+    // console.log("Inf. right");
+    cell.moveX++;
+    cell.moveY = findY(cell.moveX, +1);
+  } else if (cell.moveX >= cell.centerX && cell.moveY <= cell.centerY) {
+    // console.log("Sup. right");
+    cell.moveX--;
+    cell.moveY = findY(cell.moveX, -1);
+  } else if (
+    cell.moveX >= cell.centerX - cell.radius &&
+    cell.moveY < cell.centerY
+  ) {
+    // console.log("Sup. left");
+    cell.moveX--;
+    cell.moveY = findY(cell.moveX, -1);
+  } else if (cell.moveX < cell.centerX && cell.moveY >= cell.centerY) {
+    // console.log("Inf. left");
+    cell.moveX++;
+    cell.moveY = findY(cell.moveX, 1);
+  } else {
+    // console.log("Reset");
+    cell.reset = true;
+    cell.centerX = null;
+    cell.centerY = null;
+    cell.radius = null;
+  }
+  return {
+    x: safe(cell.moveX),
+    y: safe(cell.moveY),
+    action: ACTION_MOVE,
+  };
+};
+          </pre>
+          <br />
         </div>
       </div>
       <div>
