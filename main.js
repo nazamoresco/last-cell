@@ -223,7 +223,7 @@ setInterval(function () {
     } catch (e) {
       cellDefinition.failed = true;
       let failedFeedbackElement = document
-        .getElementById(cellDefinition.indexOf(failedCellDefinition))
+        .getElementById(cellsDefinitions.indexOf(cellDefinition))
         .getElementsByClassName("feedback")[0];
       failedFeedbackElement.textContent = `// ${e.toString()} :(`;
       console.log(e);
